@@ -33,12 +33,14 @@ public static class LobbyMessageConstructor
 	{
 		lobbies = new List<LobbyModel>();
 
-
 		if (!MessageConstructor.DeconstructMessage(data, out string type, out string[] parameters))
 			return false;
 
 		if (!Enum.TryParse(type, out LobbyMessage requestType) || requestType != LobbyMessage.LobbyList)
 			return false;
+
+		if (parameters.Length == 1 && parameters[0] == string.Empty)
+			return true;
 
 		int properiesPerModel = 4;
 		if (parameters.Length % properiesPerModel != 0)

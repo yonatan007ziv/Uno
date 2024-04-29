@@ -7,8 +7,8 @@ namespace Uno.Server.Components.Networking;
 /// </summary>
 internal static class DoSChecker
 {
-	// 10 requests per 1 minutes to the user
-	private const int NumOfAllowedRequests = 10;
+	// 25 requests per 1 minutes to the user
+	private const int NumOfAllowedRequests = 25;
 	private static readonly TimeSpan TimeUntilForgetsRequests = TimeSpan.FromMinutes(1);
 	private static readonly Dictionary<string, int> clientTracker = new Dictionary<string, int>();
 

@@ -1,4 +1,6 @@
-﻿using GameEngine.Core.Components.Objects;
+﻿using GameEngine.Components.UIComponents;
+using GameEngine.Core.Components.Objects;
+using System.Drawing;
 using System.Net;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
@@ -14,11 +16,18 @@ namespace Uno.Client.GameComponents.Views.MainMenu.LobbySelection;
 /// </summary>
 internal class LobbiesWindowViewControl : UIObject
 {
+	private const string LobbiesEmptyMessage = "No lobbies available!";
+
+	private readonly UILabel noLobbiesLabel;
 	private TcpClientHandler clientHandler;
 
 	public LobbiesWindowViewControl()
 	{
 		Meshes.Add(new GameEngine.Core.Components.MeshData("UIRect.obj", "Gray.mat"));
+
+		noLobbiesLabel = new UILabel();
+		noLobbiesLabel.TextColor = Color.White;
+		Children.Add(noLobbiesLabel);
 
 		OnUnloaded += Close;
 		clientHandler = null!;
@@ -79,24 +88,31 @@ internal class LobbiesWindowViewControl : UIObject
 	private void PopulateLobbies(string message)
 	{
 		Children.Clear();
+		Children.Add(noLobbiesLabel);
 
 		if (LobbyMessageConstructor.DeconstructLobbiesListMessage(message, out List<LobbyModel> lobbies))
 		{
-			float yScale = 1f / lobbies.Count;
-			float yOffset = 1;
-
-			for (int i = 0; i < lobbies.Count; i++)
+			if (lobbies.Count != 0)
 			{
-				LobbySelectionEntry lobbyEntry = new LobbySelectionEntry(lobbies[i]);
-				lobbyEntry.TextColor = System.Drawing.Color.White;
-				lobbyEntry.Transform.Position = new System.Numerics.Vector3(0, yOffset - yScale, 1);
-				lobbyEntry.Transform.Scale = new System.Numerics.Vector3(1, yScale, 1);
-				lobbyEntry.OnFullClicked += () => LobbyJoiner.JoinLobby(lobbyEntry.LobbyId);
+				float yScale = 1f / lobbies.Count;
+				float yOffset = 1;
 
-				Children.Add(lobbyEntry);
+				noLobbiesLabel.Text = "";
+				for (int i = 0; i < lobbies.Count; i++)
+				{
+					LobbySelectionEntry lobbyEntry = new LobbySelectionEntry(lobbies[i]);
+					lobbyEntry.TextColor = Color.White;
+					lobbyEntry.Transform.Position = new System.Numerics.Vector3(0, yOffset - yScale, 1);
+					lobbyEntry.Transform.Scale = new System.Numerics.Vector3(1, yScale, 1);
+					lobbyEntry.OnFullClicked += () => LobbyJoiner.JoinLobby(lobbyEntry.LobbyId);
 
-				yOffset -= yScale * 2;
+					Children.Add(lobbyEntry);
+
+					yOffset -= yScale * 2;
+				}
 			}
+			else
+				noLobbiesLabel.Text = LobbiesEmptyMessage;
 		}
 	}
 

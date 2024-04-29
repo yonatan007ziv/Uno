@@ -59,7 +59,6 @@ public abstract class BaseTcpHandler
 		string message = Encoding.UTF8.GetString(readBuffer);
 
 		return message;
-
 	}
 	#endregion
 

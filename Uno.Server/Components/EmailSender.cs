@@ -8,16 +8,13 @@ namespace Uno.Server.Components;
 /// </summary>
 internal static class EmailSender
 {
-	private const string Email = "";
-	private const string Password = "";
-
 	private static readonly SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
 
 	static EmailSender()
 	{
 		smtpClient.UseDefaultCredentials = false;
 		smtpClient.Port = 587;
-		smtpClient.Credentials = new NetworkCredential(Email, Password);
+		smtpClient.Credentials = new NetworkCredential(EmailConstants.Host, EmailConstants.Password);
 		smtpClient.EnableSsl = true;
 	}
 
@@ -32,7 +29,7 @@ internal static class EmailSender
 	{
 		try
 		{
-			smtpClient.Send(Email, email, subject, body);
+			smtpClient.Send(EmailConstants.Host, email, subject, body);
 			return true;
 		}
 		catch { return false; }
