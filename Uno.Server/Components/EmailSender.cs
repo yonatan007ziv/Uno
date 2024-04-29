@@ -8,8 +8,8 @@ namespace Uno.Server.Components;
 /// </summary>
 internal static class EmailSender
 {
-	private const string Email = "yonatan005ziv@gmail.com";
-	private const string Password = "gzyu fokf xawm gaum";
+	private const string Email = "";
+	private const string Password = "";
 
 	private static readonly SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
 
