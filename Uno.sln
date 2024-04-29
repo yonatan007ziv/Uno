@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uno.Client", "Uno.Client\Uno.Client.csproj", "{1682E756-1236-495F-9C68-F980EC464550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uno.Server", "Uno.Server\Uno.Server.csproj", "{3789881C-BC9A-46FA-8B68-BD67C7197BBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uno.Core", "Uno.Core\Uno.Core.csproj", "{9FAAFBE6-0617-41AA-8A0A-05729F0776AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1682E756-1236-495F-9C68-F980EC464550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1682E756-1236-495F-9C68-F980EC464550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1682E756-1236-495F-9C68-F980EC464550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1682E756-1236-495F-9C68-F980EC464550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3789881C-BC9A-46FA-8B68-BD67C7197BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3789881C-BC9A-46FA-8B68-BD67C7197BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3789881C-BC9A-46FA-8B68-BD67C7197BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3789881C-BC9A-46FA-8B68-BD67C7197BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FAAFBE6-0617-41AA-8A0A-05729F0776AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FAAFBE6-0617-41AA-8A0A-05729F0776AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FAAFBE6-0617-41AA-8A0A-05729F0776AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FAAFBE6-0617-41AA-8A0A-05729F0776AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8980E16A-0D31-471E-B38C-A6759718F254}
+	EndGlobalSection
+EndGlobal

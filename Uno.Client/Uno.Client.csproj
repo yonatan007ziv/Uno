@@ -1,0 +1,643 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.0\contentFiles\any\net8.0\EngineResources\Models\Cube.obj" />
+    <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.0\contentFiles\any\net8.0\EngineResources\Models\Plane.obj" />
+    <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.0\contentFiles\any\net8.0\EngineResources\Models\Pyramid.obj" />
+    <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.0\contentFiles\any\net8.0\EngineResources\Textures\Colors\White.png" />
+    <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.4\contentFiles\any\net8.0\EngineResources\Materials\Colors\Black.mat" />
+    <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.4\contentFiles\any\net8.0\EngineResources\Materials\Colors\White.mat" />
+    <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.4\contentFiles\any\net8.0\EngineResources\Textures\Colors\White.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="EngineResources\Fonts\Arial.ttf" />
+    <None Remove="EngineResources\Fonts\LoveDays.ttf" />
+    <None Remove="EngineResources\Materials\Default.mat" />
+    <None Remove="EngineResources\Materials\MissingTexture.mat" />
+    <None Remove="EngineResources\Materials\TextBox.mat" />
+    <None Remove="EngineResources\Models\UIRect.obj" />
+    <None Remove="EngineResources\Shaders\GLSL\DefaultFragment.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\DefaultVertex.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\GizmosFragment.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\GizmosVertex.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\LightTexturedFragment.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\LightTexturedVertex.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\TextFragment.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\TexturedFragment.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\TexturedVertex.glsl" />
+    <None Remove="EngineResources\Shaders\GLSL\TextVertex.glsl" />
+    <None Remove="EngineResources\Textures\MissingTexture.png" />
+    <None Remove="EngineResources\Textures\UI\TextBox.png" />
+    <None Remove="GameResources\Fonts\ToThePointRegular.ttf" />
+    <None Remove="GameResources\Materials\Cards\Blue_0.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_1.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_2.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_3.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_4.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_5.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_6.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_7.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_8.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_9.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_Draw.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_Reverse.mat" />
+    <None Remove="GameResources\Materials\Cards\Blue_Skip.mat" />
+    <None Remove="GameResources\Materials\Cards\Cover.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_0.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_1.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_2.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_3.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_4.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_5.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_6.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_7.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_8.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_9.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_Draw.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_Reverse.mat" />
+    <None Remove="GameResources\Materials\Cards\Green_Skip.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_0.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_1.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_2.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_3.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_4.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_5.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_6.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_7.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_8.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_9.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_Draw.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_Reverse.mat" />
+    <None Remove="GameResources\Materials\Cards\Red_Skip.mat" />
+    <None Remove="GameResources\Materials\Cards\Wild.mat" />
+    <None Remove="GameResources\Materials\Cards\Wild_Draw.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_0.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_1.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_2.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_3.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_4.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_5.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_6.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_7.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_8.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_9.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_Draw.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_Reverse.mat" />
+    <None Remove="GameResources\Materials\Cards\Yellow_Skip.mat" />
+    <None Remove="GameResources\Materials\Colors\Black.mat" />
+    <None Remove="GameResources\Materials\Colors\Blue.mat" />
+    <None Remove="GameResources\Materials\Colors\Green.mat" />
+    <None Remove="GameResources\Materials\Colors\Red.mat" />
+    <None Remove="GameResources\Materials\Colors\White.mat" />
+    <None Remove="GameResources\Materials\Colors\Yellow.mat" />
+    <None Remove="GameResources\Materials\Tables\Table_0.mat" />
+    <None Remove="GameResources\Materials\Tables\Table_1.mat" />
+    <None Remove="GameResources\Materials\Tables\Table_2.mat" />
+    <None Remove="GameResources\Materials\Tables\Table_3.mat" />
+    <None Remove="GameResources\Materials\Tables\Table_4.mat" />
+    <None Remove="GameResources\Textures\Cards\Blue_0.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_1.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_2.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_3.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_4.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_5.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_6.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_7.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_8.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_9.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_Draw.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_Reverse.png" />
+    <None Remove="GameResources\Textures\Cards\Blue_Skip.png" />
+    <None Remove="GameResources\Textures\Cards\Cover.png" />
+    <None Remove="GameResources\Textures\Cards\Green_0.png" />
+    <None Remove="GameResources\Textures\Cards\Green_1.png" />
+    <None Remove="GameResources\Textures\Cards\Green_2.png" />
+    <None Remove="GameResources\Textures\Cards\Green_3.png" />
+    <None Remove="GameResources\Textures\Cards\Green_4.png" />
+    <None Remove="GameResources\Textures\Cards\Green_5.png" />
+    <None Remove="GameResources\Textures\Cards\Green_6.png" />
+    <None Remove="GameResources\Textures\Cards\Green_7.png" />
+    <None Remove="GameResources\Textures\Cards\Green_8.png" />
+    <None Remove="GameResources\Textures\Cards\Green_9.png" />
+    <None Remove="GameResources\Textures\Cards\Green_Draw.png" />
+    <None Remove="GameResources\Textures\Cards\Green_Reverse.png" />
+    <None Remove="GameResources\Textures\Cards\Green_Skip.png" />
+    <None Remove="GameResources\Textures\Cards\Red_0.png" />
+    <None Remove="GameResources\Textures\Cards\Red_1.png" />
+    <None Remove="GameResources\Textures\Cards\Red_2.png" />
+    <None Remove="GameResources\Textures\Cards\Red_3.png" />
+    <None Remove="GameResources\Textures\Cards\Red_4.png" />
+    <None Remove="GameResources\Textures\Cards\Red_5.png" />
+    <None Remove="GameResources\Textures\Cards\Red_6.png" />
+    <None Remove="GameResources\Textures\Cards\Red_7.png" />
+    <None Remove="GameResources\Textures\Cards\Red_8.png" />
+    <None Remove="GameResources\Textures\Cards\Red_9.png" />
+    <None Remove="GameResources\Textures\Cards\Red_Draw.png" />
+    <None Remove="GameResources\Textures\Cards\Red_Reverse.png" />
+    <None Remove="GameResources\Textures\Cards\Red_Skip.png" />
+    <None Remove="GameResources\Textures\Cards\Wild.png" />
+    <None Remove="GameResources\Textures\Cards\Wild_Draw.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_0.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_1.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_2.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_3.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_4.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_5.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_6.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_7.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_8.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_9.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_Draw.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_Reverse.png" />
+    <None Remove="GameResources\Textures\Cards\Yellow_Skip.png" />
+    <None Remove="GameResources\Textures\Colors\Black.png" />
+    <None Remove="GameResources\Textures\Colors\Blue.png" />
+    <None Remove="GameResources\Textures\Colors\Green.png" />
+    <None Remove="GameResources\Textures\Colors\Red.png" />
+    <None Remove="GameResources\Textures\Colors\White.png" />
+    <None Remove="GameResources\Textures\Colors\Yellow.png" />
+    <None Remove="GameResources\Textures\Tables\Table_0.png" />
+    <None Remove="GameResources\Textures\Tables\Table_1.png" />
+    <None Remove="GameResources\Textures\Tables\Table_2.png" />
+    <None Remove="GameResources\Textures\Tables\Table_3.png" />
+    <None Remove="GameResources\Textures\Tables\Table_4.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="EngineResources\Fonts\Arial.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Fonts\LoveDays.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Materials\Default.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Materials\MissingTexture.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Materials\TextBox.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Models\UIRect.obj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\DefaultFragment.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\DefaultVertex.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\GizmosFragment.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\GizmosVertex.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\LightTexturedFragment.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\LightTexturedVertex.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\TextFragment.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\TexturedFragment.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\TexturedVertex.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Shaders\GLSL\TextVertex.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Textures\MissingTexture.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="EngineResources\Textures\UI\TextBox.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Fonts\ToThePointRegular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_0.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_1.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_2.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_3.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_4.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_5.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_6.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_7.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_8.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_9.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_Draw.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_Reverse.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Blue_Skip.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Cover.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_0.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_1.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_2.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_3.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_4.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_5.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_6.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_7.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_8.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_9.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_Draw.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_Reverse.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Green_Skip.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_0.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_1.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_2.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_3.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_4.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_5.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_6.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_7.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_8.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_9.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_Draw.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_Reverse.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Red_Skip.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Wild.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Wild_Draw.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_0.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_1.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_2.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_3.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_4.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_5.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_6.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_7.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_8.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_9.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_Draw.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_Reverse.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Cards\Yellow_Skip.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Colors\Black.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Colors\Blue.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Colors\Green.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Colors\Red.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Colors\White.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Colors\Yellow.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Tables\Table_0.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Tables\Table_1.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Tables\Table_2.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Tables\Table_3.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Materials\Tables\Table_4.mat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_Draw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_Reverse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Blue_Skip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Cover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_Draw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_Reverse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Green_Skip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_Draw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_Reverse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Red_Skip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Wild.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Wild_Draw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_Draw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_Reverse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Cards\Yellow_Skip.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Colors\Black.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Colors\Blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Colors\Green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Colors\Red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Colors\White.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Colors\Yellow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Tables\Table_0.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Tables\Table_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Tables\Table_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Tables\Table_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameResources\Textures\Tables\Table_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EngineResources\Sounds\" />
+    <Folder Include="GameResources\Sounds\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="YonatanZ.GameEngine" Version="1.8.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Uno.Core\Uno.Core.csproj" />
+  </ItemGroup>
+
+</Project>
