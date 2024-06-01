@@ -4,8 +4,8 @@ using System.Drawing;
 using System.Net;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.MessageConstructors;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.Scenes;
 
@@ -54,7 +54,7 @@ internal class MyStatsScene : Scene
 		if (!Factories.ClientFactory.Create(out TcpClientHandler clientHandler))
 			return;
 
-		if (!await clientHandler.Connect(IPAddress.Parse(ServerAddresses.GameplayServerAddress), ServerAddresses.GameplayServerPort))
+		if (!await clientHandler.Connect(IPAddress.Parse(DevConstants.GameplayServerAddress), DevConstants.GameplayServerPort))
 			return;
 
 		if (!await clientHandler.WriteMessage(AuthenticationMessageConstructor.ConstructAuthenticationRequest(SessionHolder.Username, SessionHolder.AuthenticationToken)))

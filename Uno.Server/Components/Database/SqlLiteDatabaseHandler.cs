@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using Uno.Core.Utilities;
 
 namespace Uno.Server.Components.Database;
 
@@ -7,8 +8,7 @@ namespace Uno.Server.Components.Database;
 /// </summary>
 internal static class SqlLiteDatabaseHandler
 {
-	private const string connString = @"Data Source=C:\Code\VS Community\Uno\Uno.Server\Components\Database\UnoDatabase.db";
-	private static readonly SqliteConnection conn = new SqliteConnection(connString);
+	private static readonly SqliteConnection conn = new SqliteConnection(DevConstants.DatabaseCredentials.ConnectionString);
 
 	/// <summary>
 	/// Checks whether a username exists in the table

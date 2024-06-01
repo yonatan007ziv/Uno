@@ -4,10 +4,10 @@ using System.Net;
 using System.Numerics;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.CommunicationProtocols.LoginRegister;
 using Uno.Core.Utilities.InputValidators;
 using Uno.Core.Utilities.MessageConstructors;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.GameComponents.Views.LoginRegisterViewControls;
 
@@ -116,7 +116,7 @@ internal class TwoFAViewControl : UIObject
 			return;
 		}
 
-		if (!await clientHandler.Connect(IPAddress.Parse(ServerAddresses.LoginRegisterServerAddress), ServerAddresses.LoginRegisterServerPort))
+		if (!await clientHandler.Connect(IPAddress.Parse(DevConstants.LoginRegisterServerAddress), DevConstants.LoginRegisterServerPort))
 		{
 			confirm2FAButton.Text = "Error connecting to server";
 			return;

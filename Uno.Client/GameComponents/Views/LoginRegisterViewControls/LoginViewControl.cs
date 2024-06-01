@@ -5,10 +5,10 @@ using System.Net;
 using System.Numerics;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.CommunicationProtocols.LoginRegister;
 using Uno.Core.Utilities.InputValidators;
 using Uno.Core.Utilities.MessageConstructors;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.GameComponents.Views.LoginRegisterViewControls;
 
@@ -79,7 +79,7 @@ internal class LoginViewControl : UIObject
 		// Switch button
 		switchToRegisterButton = new UIButton();
 		switchToRegisterButton.TextColor = Color.White;
-		switchToRegisterButton.OnFullClicked += () => { ResetTextBoxes(); Visible = false; };
+		switchToRegisterButton.OnFullClicked += () => { ResetView(); Visible = false; };
 		switchToRegisterButton.Text = "Register?";
 		switchToRegisterButton.Transform.Scale = fieldScale;
 		switchToRegisterButton.Transform.Position = new Vector3(-(fieldScale.X + difference), -0.45f, 5f);
@@ -92,10 +92,11 @@ internal class LoginViewControl : UIObject
 	/// <summary>
 	/// Resets the text boxes
 	/// </summary>
-	private void ResetTextBoxes()
+	private void ResetView()
 	{
 		usernameTextBox.Text = "";
 		passwordTextBox.Text = "";
+		resultLabel.Text = "";
 	}
 
 	/// <summary>
@@ -131,7 +132,7 @@ internal class LoginViewControl : UIObject
 			return;
 		}
 
-		if (!await clientHandler.Connect(IPAddress.Parse(ServerAddresses.LoginRegisterServerAddress), ServerAddresses.LoginRegisterServerPort))
+		if (!await clientHandler.Connect(IPAddress.Parse(DevConstants.LoginRegisterServerAddress), DevConstants.LoginRegisterServerPort))
 		{
 			resultLabel.Text = "Error connecting to server";
 			return;
@@ -146,6 +147,7 @@ internal class LoginViewControl : UIObject
 		if (responseStr is null)
 			return;
 
+		clientHandler.Disconnect();
 
 		bool success = false, twoFA = false;
 		if (AuthenticationProcessMessageConstructor.DeconstructLoginResponse(responseStr, out LoginResponse response, out string authenticationToken))
@@ -174,15 +176,18 @@ internal class LoginViewControl : UIObject
 		else
 			resultLabel.Text = "Invalid message-type received";
 
-		clientHandler.Disconnect();
-
 		if (success)
 		{
 			SessionHolder.Username = usernameTextBox.Text;
 			SessionHolder.AuthenticationToken = authenticationToken;
+
+			ResetView();
 			OnSuccessfulLogin?.Invoke();
 		}
 		else if (twoFA)
+		{
+			ResetView();
 			OnEmailNotConfirmed?.Invoke();
+		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using Uno.Core.Utilities.Networking;
+using Uno.Core.Utilities;
 using Uno.Server.Components.Networking;
 using Uno.Server.Components.Networking.ClientHandlers;
 
@@ -12,8 +12,8 @@ internal class Program
 	/// </summary>
 	public static async Task Main()
 	{
-		Task loginServer = new TcpServer<AuthenticationProcessClientHandler>(IPAddress.Parse(ServerAddresses.LoginRegisterServerAddress), ServerAddresses.LoginRegisterServerPort).Start();
-		Task gameplayServer = new TcpServer<AuthenticatedSessionClientHandler>(IPAddress.Parse(ServerAddresses.GameplayServerAddress), ServerAddresses.GameplayServerPort).Start();
+		Task loginServer = new TcpServer<AuthenticationProcessClientHandler>(IPAddress.Parse(DevConstants.LoginRegisterServerAddress), DevConstants.LoginRegisterServerPort).Start();
+		Task gameplayServer = new TcpServer<AuthenticatedSessionClientHandler>(IPAddress.Parse(DevConstants.GameplayServerAddress), DevConstants.GameplayServerPort).Start();
 
 		// Wait for both servers to execute to completion
 		await Task.WhenAll(loginServer, gameplayServer);

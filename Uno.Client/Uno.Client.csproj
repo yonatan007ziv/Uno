@@ -1,11 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="GameResources\Sounds\**" />
+    <EmbeddedResource Remove="GameResources\Sounds\**" />
+    <None Remove="GameResources\Sounds\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Remove="C:\Users\yonat\.nuget\packages\yonatanz.gameengine\1.8.0\contentFiles\any\net8.0\EngineResources\Models\Cube.obj" />
@@ -629,11 +635,10 @@
 
   <ItemGroup>
     <Folder Include="EngineResources\Sounds\" />
-    <Folder Include="GameResources\Sounds\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="YonatanZ.GameEngine" Version="1.8.4" />
+    <PackageReference Include="YonatanZ.GameEngine" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,9 +3,9 @@ using System.Net;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
 using Uno.Client.Scenes;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.CommunicationProtocols.Lobby;
 using Uno.Core.Utilities.MessageConstructors;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.GameComponents;
 
@@ -35,7 +35,7 @@ internal class LobbyJoiner
 	private static async Task<bool> InitializeLobbyConnection(int lobbyId)
 	{
 		if (!Factories.ClientFactory.Create(out clientHandler)
-			|| !await clientHandler.Connect(IPAddress.Parse(ServerAddresses.GameplayServerAddress), ServerAddresses.GameplayServerPort))
+			|| !await clientHandler.Connect(IPAddress.Parse(DevConstants.GameplayServerAddress), DevConstants.GameplayServerPort))
 			OnCritical();
 
 		if (!await clientHandler.WriteMessage(AuthenticationMessageConstructor.ConstructAuthenticationRequest(SessionHolder.Username, SessionHolder.AuthenticationToken)))

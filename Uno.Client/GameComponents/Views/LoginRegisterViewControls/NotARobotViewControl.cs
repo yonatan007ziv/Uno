@@ -5,9 +5,9 @@ using System.Net;
 using System.Numerics;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.CommunicationProtocols.LoginRegister;
 using Uno.Core.Utilities.MessageConstructors;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.GameComponents.Views.LoginRegisterViewControls;
 
@@ -47,7 +47,7 @@ internal class NotARobotViewControl : UIObject
 	public async void RequestNotARobotPuzzle()
 	{
 		if (!Factories.ClientFactory.Create(out clientHandler)
-			|| !await clientHandler.Connect(IPAddress.Parse(ServerAddresses.LoginRegisterServerAddress), ServerAddresses.LoginRegisterServerPort))
+			|| !await clientHandler.Connect(IPAddress.Parse(DevConstants.LoginRegisterServerAddress), DevConstants.LoginRegisterServerPort))
 			return;
 
 		if (!await clientHandler.WriteMessage(AuthenticationProcessMessageConstructor.ConstructNotARobotRequest()))

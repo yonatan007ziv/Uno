@@ -5,10 +5,10 @@ using System.Net;
 using System.Numerics;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.CommunicationProtocols.LoginRegister;
 using Uno.Core.Utilities.InputValidators;
 using Uno.Core.Utilities.MessageConstructors;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.GameComponents.Views.LoginRegisterViewControls;
 
@@ -86,7 +86,7 @@ internal class RegisterViewControl : UIObject
 		// Switch button
 		switchToLoginButton = new UIButton();
 		switchToLoginButton.TextColor = Color.White;
-		switchToLoginButton.OnFullClicked += () => { ResetTextBoxes(); Visible = false; };
+		switchToLoginButton.OnFullClicked += () => { ResetView(); Visible = false; };
 		switchToLoginButton.Text = "Login?";
 		switchToLoginButton.Transform.Scale = fieldScale;
 		switchToLoginButton.Transform.Position = new Vector3(-(fieldScale.X + difference), -0.75f, 5f);
@@ -99,11 +99,12 @@ internal class RegisterViewControl : UIObject
 	/// <summary>
 	/// Resets the text boxes
 	/// </summary>
-	private void ResetTextBoxes()
+	private void ResetView()
 	{
 		usernameTextBox.Text = "";
 		passwordTextBox.Text = "";
 		emailTextBox.Text = "";
+		registerButton.Text = "Register";
 	}
 
 	/// <summary>
@@ -145,7 +146,7 @@ internal class RegisterViewControl : UIObject
 			return;
 		}
 
-		if (!await clientHandler.Connect(IPAddress.Parse(ServerAddresses.LoginRegisterServerAddress), ServerAddresses.LoginRegisterServerPort))
+		if (!await clientHandler.Connect(IPAddress.Parse(DevConstants.LoginRegisterServerAddress), DevConstants.LoginRegisterServerPort))
 		{
 			registerButton.Text = "Error connecting to server";
 			return;
@@ -160,6 +161,9 @@ internal class RegisterViewControl : UIObject
 		if (responseStr is null)
 			return;
 
+		// Disconnect at the end of the request
+		clientHandler.Disconnect();
+
 		if (AuthenticationProcessMessageConstructor.DeconstructRegisterResponse(responseStr, out RegisterResponse response))
 		{
 			switch (response)
@@ -172,17 +176,18 @@ internal class RegisterViewControl : UIObject
 				case RegisterResponse.UnknownError:
 					registerButton.Text = "Unknown error occurred";
 					break;
+				case RegisterResponse.UsernameExists:
+					registerButton.Text = "Username already exists";
+					break;
 				case RegisterResponse.EmailInUse:
 					registerButton.Text = "Email already exists";
 					break;
 				case RegisterResponse.TwoFactorAuthenticationSent:
+					ResetView();
 					OnEmailNotConfirmed?.Invoke();
 					registerButton.Text = "Two factor authentication needed";
 					break;
 			}
 		}
-
-		// Disconnect at the end of the request
-		clientHandler.Disconnect();
 	}
 }

@@ -5,10 +5,10 @@ using System.Net;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
 using Uno.Client.GameComponents;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.CommunicationProtocols.Lobby;
 using Uno.Core.Utilities.MessageConstructors;
 using Uno.Core.Utilities.Models;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.Scenes;
 
@@ -72,7 +72,7 @@ internal class CreateLobbyScene : Scene
 	private async Task CreateLobbyProcedure()
 	{
 		if (!Factories.ClientFactory.Create(out TcpClientHandler client)
-			|| !await client.Connect(IPAddress.Parse(ServerAddresses.GameplayServerAddress), ServerAddresses.GameplayServerPort))
+			|| !await client.Connect(IPAddress.Parse(DevConstants.GameplayServerAddress), DevConstants.GameplayServerPort))
 			return;
 
 		if (!await client.WriteMessage(AuthenticationMessageConstructor.ConstructAuthenticationRequest(SessionHolder.Username, SessionHolder.AuthenticationToken)))

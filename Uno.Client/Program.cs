@@ -14,7 +14,7 @@ internal class Program
 		IGameEngine GameEngine = new GameEngineProvider().UseSilkOpenGL().BuildEngine();
 
 		GameEngine.Title = "Uno";
-		GameEngine.SetResourceFolder(@$"{Directory.GetCurrentDirectory()}\GameResources");
+		GameEngine.AddResourceFolder(@$"{Directory.GetCurrentDirectory()}\GameResources");
 		GameEngine.SetWindowBackgroundColor(System.Drawing.Color.CadetBlue);
 
 		GameEngine.LogRenderingLogs = false;

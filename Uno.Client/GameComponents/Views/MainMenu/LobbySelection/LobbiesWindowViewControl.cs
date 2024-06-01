@@ -4,10 +4,10 @@ using System.Drawing;
 using System.Net;
 using Uno.Client.Components;
 using Uno.Client.Components.Networking;
+using Uno.Core.Utilities;
 using Uno.Core.Utilities.CommunicationProtocols.Lobby;
 using Uno.Core.Utilities.MessageConstructors;
 using Uno.Core.Utilities.Models;
-using Uno.Core.Utilities.Networking;
 
 namespace Uno.Client.GameComponents.Views.MainMenu.LobbySelection;
 
@@ -40,7 +40,7 @@ internal class LobbiesWindowViewControl : UIObject
 	private async void InitializeLobbyListener()
 	{
 		if (!Factories.ClientFactory.Create(out clientHandler)
-			|| !await clientHandler.Connect(IPAddress.Parse(ServerAddresses.GameplayServerAddress), ServerAddresses.GameplayServerPort))
+			|| !await clientHandler.Connect(IPAddress.Parse(DevConstants.GameplayServerAddress), DevConstants.GameplayServerPort))
 			return;
 
 		// Authenticate user
